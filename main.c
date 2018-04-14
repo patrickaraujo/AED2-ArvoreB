@@ -9,7 +9,7 @@
 #include "TAB.c"
 
 int main(){
-	TAB *main = init_tree();
+	TAB *main = inicializa();
 	int num = 0, from, ordem;
 	printf("Digite a ordem\n");
 	scanf("%i", &ordem);
@@ -18,19 +18,20 @@ int main(){
 		scanf("%i", &num);
 		if(num == -9){
 		  scanf("%d", &from);
-		  main = remove_key(main, from, ordem);
+		  main = remocao(main, from, ordem);
 		}
 		else if(num == -1){
 		  printf("\n");
-		  print_tree(main, 0);
-		  free_tree(main);
+		  imprimir(main, 0);
+		  liberaArvore(main);
 		  break;
 		}
 		else if(!num){
 		  printf("\n");
-		  print_tree(main, 0);
+		  imprimir(main, 0);
 		}
-		else main = insert_key(main, num, ordem);
+		else
+            main = insercao(main, num, ordem);
 	}
 	return 0;
 }
