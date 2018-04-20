@@ -2,19 +2,21 @@
 #define TAB_H_INCLUDED
 
 typedef struct AB{
-	int n_chaves, folha;
+	int n_chaves;
 	int *chaves;
 	struct AB **filhos;
 }TAB;
 
-TAB* inicializa();
+void iNP( TAB*, TAB*, int ); //  Insere na Página
+void efetuaInsercao( TAB**, TAB**, int*, int*, int, int );
+void insercao( TAB**, int, int );
 TAB* novaPagina(int);
-TAB* liberaArvore( TAB* );
+
 void imprimir( TAB*, int );
 TAB* busca( TAB*, int );
-TAB* dividirPagina( TAB*, TAB*, int, int );
-TAB* efetuaInsercao( TAB*, int, int );
-TAB* insercao( TAB*, int, int );
-TAB* remocao( TAB*, int, int );
-TAB* efetuaRemocao( TAB*, int, int );
+void reconstitui( TAB**, TAB*, int*, int, int );
+void remocao( TAB**, int, int );
+void antecessor( TAB*, TAB*, int*, int, int );
+void efetuaRemocao( TAB**, int*, int, int);
+
 #endif // TAB_H_INCLUDED
