@@ -1,6 +1,8 @@
 /**
 *   @author Patrick Araújo: https://github.com/patrickaraujo
 *   Árvore B
+*   Referência 1: http://www2.dcc.ufmg.br/livros/algoritmos/cap6/slides/c/completo1/cap6.pdf
+*   Referência 2: http://www2.dcc.ufmg.br/livros/algoritmos-edicao2/cap6/codigo/c/6.3a6.9-arvore-b.c
 */
 
 #include <stdio.h>
@@ -9,29 +11,37 @@
 #include "TAB.c"
 
 int main(){
-	TAB *main = inicializa();
-	int num = 0, from, ordem;
-	printf("Digite a ordem\n");
-	scanf("%i", &ordem);
-	printf("Digite um numero para adicionar. 0 para imprimir. -9 para remover e -1 para sair\n");
-	while(num != -1){
-		scanf("%i", &num);
-		if(num == -9){
-		  scanf("%d", &from);
-		  main = remocao(main, from, ordem);
-		}
-		else if(num == -1){
-		  printf("\n");
-		  imprimir(main, 0);
-		  liberaArvore(main);
-		  break;
-		}
-		else if(!num){
-		  printf("\n");
-		  imprimir(main, 0);
-		}
-		else
-            main = insercao(main, num, ordem);
-	}
+	TAB *main = NULL;	//	inicializa
+	int ordem = 2;
+	int num = 12;
+
+	insercao(&main, 3, ordem);
+	insercao(&main, 2, ordem);
+	insercao(&main, 4, ordem);
+	insercao(&main, 5, ordem);
+	insercao(&main, 6, ordem);
+	insercao(&main, 6, ordem);
+	insercao(&main, 7, ordem);
+	insercao(&main, 8, ordem);
+	insercao(&main, 9, ordem);
+
+	printf("\nImpressao\n");
+	imprimir(main, 0);
+
+	remocao(&main, 8, ordem);
+
+	printf("\nImpressao\n");
+    imprimir(main, 0);
+    
+	remocao(&main, 3, ordem);
+    
+	printf("\nImpressao\n");
+    imprimir(main, 0);
+
+    if(busca(main, num))
+        printf("Numero %i esta na arvore", num);
+    else
+        printf("Numero %i nao esta na arvore", num);
+
 	return 0;
 }
