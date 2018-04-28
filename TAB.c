@@ -89,7 +89,7 @@ TAB* novaPagina(int ordem){
 	temp->chaves = (int*) malloc(sizeof(int) * (2 * ordem));
 	temp->filhos = (TAB**) malloc(sizeof(TAB) * ((2 * ordem) + 1));
 	int i;
-	for(i = 0; i < (2 * ordem); i++)
+	for(i = 0; i <= (2 * ordem); i++)
         temp->filhos[i] = NULL;
 	return temp;
 }
