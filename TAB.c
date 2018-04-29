@@ -38,7 +38,7 @@ void efetuaInsercao( TAB **main, TAB **pagina, int *valida, int *nI, int num, in
         else{
             if(num < (*main)->chaves[i-1])
                 i--;
-            efetuaInsercao( &((*main)->filhos[i]), pagina, valida, nI, num, ordem );
+            efetuaInsercao( &((*main)->filhos[i]), pagina, valida, nI, num, ordem );	//	verifica se tem ou não filhos
             if(*valida){
                 if((*main)->n_chaves < (2 * ordem)){    //  Página tem espaço
                     iNP( *main, *pagina, *nI );
