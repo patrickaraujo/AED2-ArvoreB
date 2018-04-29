@@ -46,8 +46,6 @@ void efetuaInsercao( TAB **main, TAB **pagina, int *valida, int *nI, int num, in
                 }
                 else{   //  Overflow: Página tem que ser dividida
                     TAB *temp = novaPagina(ordem);
-                    temp->n_chaves = 0;
-                    temp->filhos[0] = NULL;
                     if(i < ordem + 1){
                         iNP( temp, (*main)->filhos[2 * ordem], (*main)->chaves[(2 * ordem) - 1] );
                         (*main)->n_chaves--;
